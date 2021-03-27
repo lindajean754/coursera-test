@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en" ng-app="ShoppingListCheckOff">
+  <head>
+    <title>Shopping List Check Off</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gabriela&display=swap"
+          rel="stylesheet">
+    <style>
+      h3 {
+        color: #a52a2a;
+        font-family: 'Gabriela', serif;
+        font-style: italic;
+      }
+      .emptyMessage {
+        font-weight: bold;
+        color: red;
+        font-size: 1.2em;
+      }
+      li {
+        margin-bottom: 7px;
+        font-size: 1.2em;
+      }
+      li > button {
+        margin-left: 6px;
+      }
+      button > span {
+        color: green;
+      }
+    </style>
+  </head>
+<body ng-controller='ToBuyController as tbc'>
+
+<div class="container">
+  <h1>Shopping List Check Off</h1>
+  <h3>For Chocolate Chip Cookies</h3>
+
+  <div class="row">
+
+    <!-- To Buy List -->
+    <div class="col-md-6">
+     <h2>To Buy:</h2>
+     <ul>
+       <li ng-repeat = "item in tbc.items">
+       {{item.quantity}} {{item.name}}
+       <button class="btn btn-default" ng-click="tbc.bought($index)">
+         <span class="glyphicon glyphicon-ok"></span> Bought</button></li>
+     </ul>
+     <div class="emptyMessage" ng-if="tbc.items.length==0">Everything is bought! <br />
+       Now I am ready to bake some cookies.</div>
+    </div>
+
+    <!-- Already Bought List -->
+    <div ng-controller = "AlreadyBoughtController as abc">
+    <div class = "col-md-6">
+     <h2>Already Bought:</h2>
+    <ul>
+      <li ng-repeat = "bitem in abc.boughtitems">
+         Bought {{bitem.quantity}} {{bitem.name}}</li>
+     </ul>
+     <div class="emptyMessage"
+                ng-if="abc.boughtitems.length==0">Nothing bought yet.</div>
+    </div>
+  </div>
+</div>
+<script src="angular.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
