@@ -3,7 +3,7 @@
    <div ng-if="isValid" class="row ng-scope">
      <ul class="list-group">
        <li class="list-group-item ng-binding ng-scope" ng-repeat="item in items">
-         {{menu.items}}
+         {{ item }}
         <button ng-click="onRemove({index: $index})">Don't want this one!</button>
        </li>
      </ul>
