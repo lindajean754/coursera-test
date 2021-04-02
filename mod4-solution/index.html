@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>Restaurant Menu App</title>
     <link rel="stylesheet" href="css/styles.css">
-    <script src="src/app.js"></script>
   </head>
 
 <body>
@@ -14,8 +13,8 @@
 
   <ui-view class="ng-scope">
     <div class="tabs">
-       <a ui-sref="home" class="ng-scope" href="home.template.html" ui-sref-active="activeTab">Home</a>
-       <a ui-sref="categories" class="ng-scope" href="#/category-list" ui-sref-active="activeTab">Categories</a>
+       <a ui-sref="home" class="ng-scope" href="#/home.template.html" ui-sref-active="activeTab">Home</a>
+       <a ui-sref="categorylist" class="ng-scope" href="#/category-list" ui-sref-active="activeTab">Categories</a>
        <a ui-sref="items" class="ng-scope" href="#item-list" ui-sref-active="activeTab">Items</a>
     </div>
   </ui-view>
