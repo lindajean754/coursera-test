@@ -11,6 +11,7 @@ angular.module('MenuApp')
    $urlRouterProvider.otherwise('/');
 
    // Set up UI states
+   $stateProvider
    // home page
    .state('home', {
      url: '/',
@@ -18,7 +19,7 @@ angular.module('MenuApp')
    })
 
 
-     .state('categorylist', {
+   .state('categorylist', {
        url: '/category-list',
        templateUrl: 'src/menulist/templates/main-categorylist.template.html',
        controller: 'MainCategoryListController as categoryListCtrl',
@@ -29,7 +30,7 @@ angular.module('MenuApp')
        }
      })
 
-     .state('items', {
+   .state('items', {
        url: '/items/{category}',
        templateUrl: 'src/menulist/templates/main-itemlist.template.html'
        controller: 'ItemsController as itemsListCtrl',
