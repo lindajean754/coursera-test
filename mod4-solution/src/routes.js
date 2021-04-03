@@ -17,27 +17,27 @@ angular.module('MenuApp')
      templateUrl: 'menulist/templates/home.template.html'
    })
 
-   .state('categorylist', {
-       url: '/categorylist',
-       templateUrl: 'menulist/templates/categorylist.template.html',
-       controller: 'categoryListController as categoryListCtrl',
+   .state('categories', {
+       url: '/categories',
+       templateUrl: 'menulist/templates/categories.template.html',
+       controller: 'categoriesController as categoriesCtrl',
        resolve: {
-         categoryList: ['MenuDataService', function (MenuDataService) {
+         categories: ['MenuDataService', function (MenuDataService) {
            return MenuDataService.getAllCategories();
          }]
        }
      })
 
    .state('items', {
-       url: '/categoryList/{categoryShortName}',
-       templateUrl: 'menulist/templates/itemlist.template.html',
+       url: '/categories/{categoryShortName}',
+       templateUrl: 'menulist/templates/items.template.html',
        controller: 'itemsController as itemsCtrl',
        params: {
          categoryShortName: null,
          categoryName: null
        },
        resolve: {
-         items: ['MenuDataService', '$stateParams', function (MenuDataService, $stateParams) {
+         items: ['$stateParams', 'MenuDataService',  function ($stateParams, MenuDataService) {
            return MenuDataService.getItemsForCategory($stateParams.categoryShortName);
          }]
        }
