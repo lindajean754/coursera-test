@@ -30,7 +30,7 @@ angular.module('MenuApp')
 
    .state('items', {
        url: '/categoryList/{categoryShortName}',
-       templateUrl: 'menulist/templates/itemlist.template.html'
+       templateUrl: 'menulist/templates/itemlist.template.html',
        controller: 'itemsController as itemsCtrl',
        params: {
          categoryShortName: null,
