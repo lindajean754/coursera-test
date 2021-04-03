@@ -18,9 +18,9 @@ angular.module('MenuApp')
    })
 
    .state('categories', {
-       url: '/menulist/templates/categories',
+       url: '/categories',
        templateUrl: 'src/menulist/templates/categories.html',
-       controller: 'categoriesController as categoriesCtrl',
+       controller: 'categoriesController as categories',
        resolve: {
          categories: ['MenuDataService', function (MenuDataService) {
            return MenuDataService.getAllCategories();
@@ -29,9 +29,9 @@ angular.module('MenuApp')
      })
 
    .state('items', {
-       url: '/menulist/templates/categories/{categoryShortName}',
+       url: '/items/{categoryShortName}',
        templateUrl: 'src/menulist/templates/items.html',
-       controller: 'itemsController as itemsCtrl',
+       controller: 'itemsController as items',
        params: {
          categoryShortName: null,
          categoryName: null
