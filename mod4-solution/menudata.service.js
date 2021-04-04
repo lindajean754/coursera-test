@@ -10,12 +10,16 @@
         var service = this;
 
         service.getAllCategories = function() {
-            var promise = $http({method:"GET", url:ApiBasePath+"/categories.json"});
+            var promise = $http({
+              method:"GET",
+              url: ApiBasePath + "/categories.json"});
             return promise;
         }
 
         service.getItemsForCategory = function (category) {
-            var promise = $http({method:"GET", url:ApiBasePath+"/menu_items.json?category="+category});
+            var promise = $http({
+              method:"GET",
+              url: ApiBasePath + "/menu_items.json?category=" + category});
             return promise;
         }
     }
